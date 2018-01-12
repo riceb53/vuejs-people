@@ -39,6 +39,13 @@ var HomePage = {
       console.log(this.newPerson);
       // add it to the array
       this.people.push(this.newPerson);
+    },
+    removePerson: function(inputPerson) {
+      console.log(inputPerson);
+      // remove them from the array
+      var index = this.people.indexOf(inputPerson);
+      console.log(index);
+      this.people.splice(index, 1);
     }
   },
   computed: {}

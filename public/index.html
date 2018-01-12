@@ -27,6 +27,7 @@
     <div v-for="person in people">
       <h2>{{ person.name }}</h2>
       <p>{{ person.bio }}</p>
+      <button v-on:click="removePerson(person)">Remove this person</button>
     </div>
 
     <p>Name: <input type="text" v-model="newPerson.name"></p>
