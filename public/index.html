@@ -27,6 +27,8 @@
       <p>{{ person.bio }}</p>
     </div>
 
-
+    <p>Name: <input type="text" v-model="newPerson.name"></p>
+    <p>Bio: <input type="text" v-model="newPerson.bio"></p>
+    <button v-on:click="addPerson()">Add the person</button>
   </div>
 </template>
