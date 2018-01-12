@@ -7,6 +7,13 @@
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.js"></script>
   <script src="index.js" defer></script>
+
+  <style type="text/css">
+    .strike {
+      text-decoration: line-through;
+    }
+  </style>
+
 </head>
 <body>
   <div id="vue-app">
@@ -26,8 +33,8 @@
 
     <div v-for="person in people">
       <h2 v-on:click="toggleBio(person)">{{ person.name }}</h2>
-      <p v-if="person.bioVisible">{{ person.bio }}</p>
-      <p>BV: {{ person.bioVisible }}</p>
+      <p v-bind:class="{strike: !person.bioVisible}">{{ person.bio }}</p>
+      BV: {{person.bioVisible}}
       <button v-on:click="removePerson(person)">Remove this person</button>
     </div>
 
