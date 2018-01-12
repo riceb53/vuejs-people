@@ -9,7 +9,7 @@ var HomePage = {
         {
           name: "Bob",
           bio: "Small batch salvia Marfa chillwave delectus, odio forage art party laborum street art minim fixie locavore hoodie mollit.",
-          bioVisible: true
+          bioVisible: false
         },
         {
           name: "Alice",
@@ -46,6 +46,16 @@ var HomePage = {
       var index = this.people.indexOf(inputPerson);
       console.log(index);
       this.people.splice(index, 1);
+    },
+    toggleBio: function(inputPerson) {
+      // if BV is true, make it false,
+      // if it's false, make it true
+      // if (inputPerson.bioVisible === true) {
+      //   inputPerson.bioVisible = false;
+      // } else {
+      //   inputPerson.bioVisible = true;
+      // }
+      inputPerson.bioVisible = !inputPerson.bioVisible;
     }
   },
   computed: {}

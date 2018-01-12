@@ -25,8 +25,9 @@
     <p>{{ people.length }}</p>
 
     <div v-for="person in people">
-      <h2>{{ person.name }}</h2>
-      <p>{{ person.bio }}</p>
+      <h2 v-on:click="toggleBio(person)">{{ person.name }}</h2>
+      <p v-if="person.bioVisible">{{ person.bio }}</p>
+      <p>BV: {{ person.bioVisible }}</p>
       <button v-on:click="removePerson(person)">Remove this person</button>
     </div>
 
