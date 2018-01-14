@@ -6,8 +6,8 @@ var HomePage = {
     return {
       message: "Welcome to Vue.js!",
       people: [],
-      newPerson: {name: "", bio: "", bioVisible: true}
-
+      newPerson: {name: "", bio: "", bioVisible: true},
+      errors: []
     };
   },
   created: function() {
@@ -28,6 +28,11 @@ var HomePage = {
       axios.post('/v1/people', params).then(function(response) {
         console.log(response.data);
         this.people.push(response.data);
+        this.errors = [];
+      }.bind(this)).catch(function(errors){
+        console.log('in the errors');
+        console.log(errors);
+        this.errors = errors.response.data.errors;
       }.bind(this));
       // then add that person to the array
     },
