@@ -20,11 +20,16 @@ var HomePage = {
   },
   methods: {
     addPerson: function() {
-      console.log('running the function');
-      // take the new person object
-      console.log(this.newPerson);
-      // add it to the array
-      this.people.push(this.newPerson);
+      // add a new person to the db
+      var params = {
+        name: this.newPerson.name,
+        bio: this.newPerson.bio
+      };
+      axios.post('/v1/people', params).then(function(response) {
+        console.log(response.data);
+        this.people.push(response.data);
+      }.bind(this));
+      // then add that person to the array
     },
     removePerson: function(inputPerson) {
       console.log(inputPerson);
