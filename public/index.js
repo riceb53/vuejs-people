@@ -29,7 +29,7 @@ var HomePage = {
         console.log(response.data);
         this.people.push(response.data);
         this.errors = [];
-      }.bind(this)).catch(function(errors){
+      }.bind(this)).catch(function(errors) {
         console.log('in the errors');
         console.log(errors);
         this.errors = errors.response.data.errors;
